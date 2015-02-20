@@ -25,6 +25,9 @@
     "twitter": "^1.2.1"
   },
   "main": "./components.js",
+  "scripts": {
+    "prepublish": "gulp lib"
+  },
   "devDependencies": {
     "del": "^1.1.1",
     "gulp": "^3.8.11",

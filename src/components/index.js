@@ -1,5 +1,3 @@
-var components = {
+module.exports = {
     Weather: require('./Weather.jsx')
 };
-
-module.exports = components;
