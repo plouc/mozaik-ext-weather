@@ -31,7 +31,8 @@ var codes = {
 module.exports = {
     icon(code) {
         if (!codes[code]) {
-            throw new Error('No icon defined for code "' + code + '"');
+            console.warn('No icon defined for code "' + code + '"');
+            return 'no-code';
         }
 
         return codes[code];
