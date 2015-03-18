@@ -78,7 +78,7 @@ var Weather = React.createClass({
         var tempNode        = null;
         var iconNode        = null;
 
-        if (this.state.current) {
+        if (this.state.current && this.state.current.weather) {
             if (this.state.current.weather.length > 0) {
                 //{this.state.current.weather[0].id}
                 descriptionNode = (
