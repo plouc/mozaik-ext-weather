@@ -13,7 +13,7 @@
 key       | required | description
 ----------|----------|----------------------------------------------------
 `city`    | yes      | *The city you want to display weather for.*
-`country` | yes      | *The country you want to display weather for.
+`country` | yes      | *The country you want to display weather for.*
 `lang`    | no       | *Lang used to display weather info. Defaults to `en`.*
 `limit`   | no       | *Limit displayed days. Defaults to `3`.*
 
