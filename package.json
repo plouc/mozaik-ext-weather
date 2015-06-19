@@ -11,7 +11,7 @@
     "url": "https://github.com/plouc"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": ">=0.10.x"
   },
   "homepage": "https://github.com/plouc/mozaik-ext-weather",
   "dependencies": {
