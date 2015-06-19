@@ -28,5 +28,14 @@ key       | required | description
     limit:   2,
     columns: 1, rows: 1,
     x: 0, y: 0
+},
+{
+    type:    'weather.weather',
+    city:    'Paris',
+    country: 'FR',
+    lang:    'fr',
+    limit:   2,
+    columns: 1, rows: 1,
+    x: 1, y: 0
 }
 ```
