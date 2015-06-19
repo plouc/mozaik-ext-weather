@@ -21,21 +21,30 @@ key       | required | description
 
 ```javascript
 {
-    type:    'weather.weather',
-    city:    'Tokyo',
-    country: 'JP',
-    lang:    'en',
-    limit:   2,
-    columns: 1, rows: 1,
-    x: 0, y: 0
-},
-{
-    type:    'weather.weather',
+    type:    'weather.weather'
     city:    'Paris',
     country: 'FR',
     lang:    'fr',
     limit:   2,
     columns: 1, rows: 1,
+    x: 0, y: 0
+},
+{
+    type:    'weather.weather'
+    city:    'Tokyo',
+    country: 'JP',
+    lang:    'en',
+    limit:   3,
+    columns: 1, rows: 1,
     x: 1, y: 0
+},
+{
+    type:    'weather.weather'
+    city:    'Barcelona',
+    country: 'ES',
+    lang:    'es',
+    limit:   4,
+    columns: 1, rows: 1,
+    x: 2, y: 0
 }
 ```
