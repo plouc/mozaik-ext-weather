@@ -3,12 +3,15 @@ var Promise = require('bluebird');
 var url     = require('url');
 var cache   = require('memory-cache');
 var format  = require('string-template');
+var config  = require('./config');
 require('superagent-bluebird-promise');
 
 /**
  * @param {Mozaik} context
  */
 var client = function (context) {
+    context.loadApiConfig(config);
+    var token = config.get('weather.token');
 
     var methods = {
         current: function (params) {
@@ -19,7 +22,7 @@ var client = function (context) {
                 });
             }
 
-            return request.get('http://api.openweathermap.org/data/2.5/weather?lang=' + params.lang + '&q=' + params.city + ',' + params.country)
+            return request.get('http://api.openweathermap.org/data/2.5/weather?lang=' + params.lang + '&q=' + params.city + ',' + params.country + '&appid=' + token)
                 .promise()
                 .then(function (res) {
                     cache.put(cacheKey, res.body, 1800000);
@@ -36,11 +39,10 @@ var client = function (context) {
                 });
             }
 
-            return request.get('http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&cnt=' + params.limit + '&lang=' + params.lang + '&q=' + params.city + ',' + params.country)
+            return request.get('http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&cnt=' + params.limit + '&lang=' + params.lang + '&q=' + params.city + ',' + params.country + '&appid=' + token)
                 .promise()
                 .then(function (res) {
                     cache.put(cacheKey, res.body.list, 1800000);
-
                     return res.body.list;
                 });
         },
@@ -54,7 +56,7 @@ var client = function (context) {
             }
 
             return Promise.props({
-                current:  methods.current(params),
+                current: methods.current(params),
                 forecast: methods.forecast(params)
             }).then(function (res) {
                 cache.put(cacheKey, res, 1800000);
