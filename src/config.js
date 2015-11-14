@@ -7,7 +7,7 @@ var configurator = convict({
             doc: 'The weather API token',
             default: null,
             format: String,
-            env: "WEATHER_SERVICE_KEYPATH"
+            env: 'WEATHER_SERVICE_KEYPATH'
         }
     }
 });

@@ -56,7 +56,7 @@ var client = function (context) {
             }
 
             return Promise.props({
-                current: methods.current(params),
+                current:  methods.current(params),
                 forecast: methods.forecast(params)
             }).then(function (res) {
                 cache.put(cacheKey, res, 1800000);
