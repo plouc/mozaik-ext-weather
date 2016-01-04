@@ -21,7 +21,7 @@ key       | required | description
 
 ```javascript
 {
-    type:    'weather.weather'
+    type:    'weather.weather',
     city:    'Paris',
     country: 'FR',
     lang:    'fr',
@@ -30,7 +30,7 @@ key       | required | description
     x: 0, y: 0
 },
 {
-    type:    'weather.weather'
+    type:    'weather.weather',
     city:    'Tokyo',
     country: 'JP',
     lang:    'en',
@@ -39,7 +39,7 @@ key       | required | description
     x: 1, y: 0
 },
 {
-    type:    'weather.weather'
+    type:    'weather.weather',
     city:    'Barcelona',
     country: 'ES',
     lang:    'es',
