@@ -1,6 +1,7 @@
 # Mozaïk weather widgets
 
 [![Travis CI](https://img.shields.io/travis/plouc/mozaik-ext-weather.svg?style=flat-square)](https://travis-ci.org/plouc/mozaik-ext-weather)
+[![NPM version](https://img.shields.io/npm/v/mozaik-ext-weather.svg?style=flat-square)](https://www.npmjs.com/package/mozaik-ext-weather)
 
 ## Weather — Weather
 
