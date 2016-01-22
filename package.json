@@ -29,13 +29,16 @@
     "superagent-bluebird-promise": "^0.6.0"
   },
   "scripts": {
+    "test": "mocha --opts mocha.opts ./src/tests/**/*.test.js",
     "eslint": "eslint ./src/**/*"
   },
   "devDependencies": {
     "babel-eslint": "4.1.6",
+    "chai": "3.4.1",
     "enzyme": "1.4.0",
     "eslint": "1.10.3",
-    "eslint-plugin-react": "3.15.0"
+    "eslint-plugin-react": "3.15.0",
+    "mocha": "2.3.4"
   },
   "peerDependencies": {
     "mozaik": "1.x"

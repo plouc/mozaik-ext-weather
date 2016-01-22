@@ -12,7 +12,6 @@ class WeatherForecastItem extends Component {
         return (
             <div className="weather__weather__forecast__item">
                 <i className={iconClass} />
-
                 <span className="weather__weather__forecast__item__description">
                     {weather[0].description}
                 </span>
