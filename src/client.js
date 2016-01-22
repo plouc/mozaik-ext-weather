@@ -1,8 +1,7 @@
-const request = require('superagent');
-const Promise = require('bluebird');
-const url     = require('url');
-const cache   = require('memory-cache');
-const config  = require('./config');
+import request from 'superagent';
+import Promise from 'bluebird';
+import cache   from 'memory-cache';
+import config  from './config';
 require('superagent-bluebird-promise');
 
 
@@ -84,4 +83,4 @@ const client = function (context) {
 };
 
 
-module.exports = client;
+export default client;

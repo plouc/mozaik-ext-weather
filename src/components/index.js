@@ -1,3 +1,6 @@
-module.exports = {
-    Weather: require('./Weather.jsx')
+import Weather from './Weather.jsx';
+
+
+export default {
+    Weather
 };
