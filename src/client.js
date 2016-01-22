@@ -1,56 +1,68 @@
-var request = require('superagent');
-var Promise = require('bluebird');
-var url     = require('url');
-var cache   = require('memory-cache');
-var format  = require('string-template');
-var config  = require('./config');
+const request = require('superagent');
+const Promise = require('bluebird');
+const url     = require('url');
+const cache   = require('memory-cache');
+const config  = require('./config');
 require('superagent-bluebird-promise');
+
+
+const API_BASE_URL = 'http://api.openweathermap.org/data/2.5';
+
 
 /**
  * @param {Mozaik} context
  */
-var client = function (context) {
+const client = function (context) {
     context.loadApiConfig(config);
-    var token = config.get('weather.token');
+    const token = config.get('weather.apiToken');
 
-    var methods = {
-        current: function (params) {
-            var cacheKey = format('weather.current.{city}.{country}.{lang}', params);
+    const methods = {
+        current(params) {
+            const { city, country, lang } = params;
+            const cacheKey = `weather.current.${city}.${country}.${lang}`;
+
             if (cache.get(cacheKey) !== null) {
-                return new Promise(function (resolve) {
+                return new Promise((resolve) => {
                     resolve(cache.get(cacheKey));
                 });
             }
 
-            return request.get('http://api.openweathermap.org/data/2.5/weather?lang=' + params.lang + '&q=' + params.city + ',' + params.country + '&appid=' + token)
+            return request.get(`${API_BASE_URL}/weather?lang=${lang}&q=${city},${country}&appid=${token}`)
                 .promise()
-                .then(function (res) {
+                .then((res) => {
                     cache.put(cacheKey, res.body, 1800000);
 
                     return res.body;
-                });
+                })
+            ;
         },
 
-        forecast: function (params) {
-            var cacheKey = format('weather.forecast.{city}.{country}.{lang}.{limit}', params);
+        forecast(params) {
+            const { city, country, lang, limit } = params;
+            const cacheKey = `weather.forecast.${city}.${country}.${lang}.${limit}`;
+
             if (cache.get(cacheKey) !== null) {
-                return new Promise(function (resolve) {
+                return new Promise((resolve) => {
                     resolve(cache.get(cacheKey));
                 });
             }
 
-            return request.get('http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&cnt=' + params.limit + '&lang=' + params.lang + '&q=' + params.city + ',' + params.country + '&appid=' + token)
+            return request.get(`${API_BASE_URL}/forecast/daily?mode=json&cnt=${limit}&lang=${lang}&q=${city},${country}&appid=${token}`)
                 .promise()
-                .then(function (res) {
+                .then((res) => {
                     cache.put(cacheKey, res.body.list, 1800000);
+
                     return res.body.list;
-                });
+                })
+            ;
         },
 
-        combined: function (params) {
-            var cacheKey = format('weather.combined.{city}.{country}.{lang}.{limit}', params);
+        combined(params) {
+            const { city, country, lang, limit } = params;
+            const cacheKey = `weather.combined.${city}.${country}.${lang}.${limit}`;
+
             if (cache.get(cacheKey) !== null) {
-                return new Promise(function (resolve) {
+                return new Promise((resolve) => {
                     resolve(cache.get(cacheKey));
                 });
             }
@@ -58,15 +70,18 @@ var client = function (context) {
             return Promise.props({
                 current:  methods.current(params),
                 forecast: methods.forecast(params)
-            }).then(function (res) {
-                cache.put(cacheKey, res, 1800000);
+            })
+                .then((res) => {
+                    cache.put(cacheKey, res, 1800000);
 
-                return res;
-            });
+                    return res;
+                })
+            ;
         }
     };
 
     return methods;
 };
+
 
 module.exports = client;

@@ -3,6 +3,35 @@
 [![Travis CI](https://img.shields.io/travis/plouc/mozaik-ext-weather.svg?style=flat-square)](https://travis-ci.org/plouc/mozaik-ext-weather)
 [![NPM version](https://img.shields.io/npm/v/mozaik-ext-weather.svg?style=flat-square)](https://www.npmjs.com/package/mozaik-ext-weather)
 
+## Weather Client Configuration
+
+In order to use the Mozaïk weather widgets, you **must** configure its **client**.
+
+### parameters
+
+key     | env key           | required | description
+--------|-------------------|----------|-----------------------------------
+`token` | WEATHER_API_TOKEN | yes      | *openweathermap api token*
+
+#### using `config.js`
+
+```javascript
+{
+  //…
+  api: {
+    weather: {
+      baseUrl: 'https://my-jenkins.ci',
+      auth: {
+        user:     'user',
+        password: 'password'
+      }
+    }
+  }
+}
+```
+
+####
+
 ## Weather — Weather
 
 > Show weather for given city/country

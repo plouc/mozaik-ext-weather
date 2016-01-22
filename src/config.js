@@ -1,15 +1,17 @@
-var convict = require('convict');
-var check   = require('validator').check;
+const convict = require('convict');
+const check   = require('validator').check;
 
-var configurator = convict({
+
+const configurator = convict({
     weather: {
-        token: {
+        apiToken: {
             doc:     'The weather API token',
             default: null,
             format:  String,
-            env:     'WEATHER_SERVICE_KEYPATH'
+            env:     'WEATHER_API_TOKEN'
         }
     }
 });
+
 
 module.exports = configurator;
