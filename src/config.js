@@ -1,8 +1,7 @@
-const convict = require('convict');
-const check   = require('validator').check;
+import convict from 'convict';
 
 
-const configurator = convict({
+const config = convict({
     weather: {
         apiToken: {
             doc:     'The weather API token',
@@ -14,4 +13,4 @@ const configurator = convict({
 });
 
 
-module.exports = configurator;
+export default config;

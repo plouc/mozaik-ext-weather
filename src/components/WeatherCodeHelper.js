@@ -1,4 +1,4 @@
-var codes = {
+const codes = {
     500: 'light-rain',
     501: 'moderate-rain',
     502: 'heavy-intensity-rain',
@@ -28,13 +28,11 @@ var codes = {
     804: 'overcast-clouds'
 };
 
-module.exports = {
-    icon(code) {
-        if (!codes[code]) {
-            console.warn('No icon defined for code "' + code + '"');
-            return 'no-code';
-        }
-
-        return codes[code];
+export function icon(code) {
+    if (!codes[code]) {
+        console.warn(`No icon defined for code "${code}"`); // eslint-disable-line no-console
+        return 'no-code';
     }
-};
+
+    return codes[code];
+}
