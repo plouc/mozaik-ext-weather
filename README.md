@@ -20,15 +20,15 @@ key     | env key           | required | description
   //…
   api: {
     weather: {
-      baseUrl: 'https://my-jenkins.ci',
-      auth: {
-        user:     'user',
-        password: 'password'
-      }
+      token: 'secret_api_token'
     }
   }
 }
 ```
+
+#### using environment variable
+
+Simply set **WEATHER_API_TOKEN** env variable, using `.env` or manually.
 
 ####
 
