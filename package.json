@@ -33,6 +33,7 @@
     "eslint": "eslint ./src/**/*"
   },
   "devDependencies": {
+    "babel": "^5.8.12",
     "babel-eslint": "4.1.6",
     "chai": "3.4.1",
     "enzyme": "1.4.0",
