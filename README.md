@@ -30,8 +30,6 @@ key     | env key           | required | description
 
 Simply set **WEATHER_API_TOKEN** env variable, using `.env` or manually.
 
-####
-
 ## Weather — Weather
 
 > Show weather for given city/country
