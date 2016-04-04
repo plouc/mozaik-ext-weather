@@ -39,24 +39,30 @@
     "superagent": "^0.21.0",
     "superagent-bluebird-promise": "^0.6.0"
   },
-  "scripts": {
-    "eslint": "eslint --ext .js --ext .jsx ./src/** ./test/**",
-    "test": "mocha --opts mocha.opts ./src/tests/**/*.test.js"
-  },
   "devDependencies": {
+    "ava": "0.13.0",
     "babel-eslint": "5.0.0",
     "babel-register": "6.7.2",
-    "chai": "3.4.1",
-    "enzyme": "1.4.0",
+    "coveralls": "2.11.8",
+    "enzyme": "2.1.0",
     "eslint": "2.2.0",
     "eslint-plugin-react": "4.2.2",
-    "mocha": "2.3.4",
-    "mockery": "1.4.0",
-    "react": "^0.13.3"
+    "mockery": "1.4.1",
+    "nock": "7.7.2",
+    "nyc": "6.1.1",
+    "react": "^0.13.3",
+    "sinon": "1.17.3"
   },
   "peerDependencies": {
     "mozaik": ">=1.1.0",
     "react": "^0.13.3"
+  },
+  "scripts": {
+    "eslint": "eslint --ext .js --ext .jsx ./src/** ./test/**",
+    "test": "ava",
+    "test-cover": "nyc ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "cover-report": "nyc report --reporter=lcov && open coverage/lcov-report/index.html"
   },
   "browserify": {
     "transform": [
