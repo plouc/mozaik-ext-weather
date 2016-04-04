@@ -31,6 +31,8 @@ class WeatherForecastItem extends Component {
     }
 }
 
+WeatherForecastItem.displayName = 'WeatherForecastItem';
+
 WeatherForecastItem.propTypes = {
     temp: PropTypes.shape({
         min: PropTypes.number.isRequired,

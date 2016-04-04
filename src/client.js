@@ -9,10 +9,11 @@ const API_BASE_URL = 'http://api.openweathermap.org/data/2.5';
 
 
 /**
- * @param {Mozaik} context
+ * @param {Mozaik} mozaik
  */
-const client = function (context) {
-    context.loadApiConfig(config);
+const client = mozaik => {
+    mozaik.loadApiConfig(config);
+
     const token = config.get('weather.apiToken');
 
     const methods = {

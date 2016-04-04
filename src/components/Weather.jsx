@@ -88,6 +88,8 @@ class Weather extends Component {
     }
 }
 
+Weather.displayName = 'Weather';
+
 Weather.propTypes = {
     city:    PropTypes.string.isRequired,
     country: PropTypes.string.isRequired,
