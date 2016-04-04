@@ -51,7 +51,7 @@ test('should display current weather when available', t => {
         },
         weather: [
             {
-                id: 800,
+                id:          800,
                 description: 'current description'
             }
         ]
