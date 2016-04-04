@@ -1,5 +1,6 @@
 # Mozaïk weather widgets
 
+[![License][license-image]][license-url]
 [![Travis CI](https://img.shields.io/travis/plouc/mozaik-ext-weather.svg?style=flat-square)](https://travis-ci.org/plouc/mozaik-ext-weather)
 [![NPM version](https://img.shields.io/npm/v/mozaik-ext-weather.svg?style=flat-square)](https://www.npmjs.com/package/mozaik-ext-weather)
 
@@ -76,3 +77,6 @@ key       | required | description
     x: 2, y: 0
 }
 ```
+
+[license-image]: https://img.shields.io/github/license/plouc/mozaik-ext-weather.svg?style=flat-square
+[license-url]: https://github.com/plouc/mozaik-ext-weather/blob/master/LICENSE.md
