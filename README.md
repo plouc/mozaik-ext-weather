@@ -24,7 +24,7 @@ key     | env key           | required | description
   //…
   api: {
     weather: {
-      token: 'secret_api_token'
+      apiToken: 'secret_api_token'
     }
   }
 }
