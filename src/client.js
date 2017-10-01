@@ -47,7 +47,7 @@ const client = mozaik => {
                 });
             }
 
-            return request.get(`${API_BASE_URL}/forecast/daily?mode=json&cnt=${limit}&lang=${lang}&q=${city},${country}&appid=${token}`)
+            return request.get(`${API_BASE_URL}/forecast?mode=json&cnt=${limit}&lang=${lang}&q=${city},${country}&appid=${token}`)
                 .promise()
                 .then((res) => {
                     cache.put(cacheKey, res.body.list, 1800000);
