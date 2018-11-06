@@ -4,13 +4,15 @@ import { icon as iconHelper }          from './WeatherCodeHelper';
 
 class WeatherForecastItem extends Component {
     render() {
-        const { weather, main } = this.props;
+        const { weather, main, dt_txt } = this.props;
 
         const icon      = iconHelper(weather[0].id);
         const iconClass = `weather__icon weather__icon--${icon}`;
+        const dateArray = dt_txt.split('-');
 
         return (
             <div className="weather__weather__forecast__item">
+                <h2>{dateArray[2]}</h2>
                 <i className={iconClass} />
                 <span className="weather__weather__forecast__item__description">
                     {weather[0].description}
@@ -38,6 +40,7 @@ WeatherForecastItem.propTypes = {
         temp_max: PropTypes.number.isRequired,
         temp_min: PropTypes.number.isRequired
     }).isRequired,
+    dt_txt: PropTypes.string.isRequired,
     weather: PropTypes.arrayOf(
         PropTypes.shape({
             description: PropTypes.string.isRequired
