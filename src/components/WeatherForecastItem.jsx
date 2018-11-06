@@ -8,11 +8,12 @@ class WeatherForecastItem extends Component {
 
         const icon      = iconHelper(weather[0].id);
         const iconClass = `weather__icon weather__icon--${icon}`;
-        const dateArray = dt_txt.split('-');
+        const dateArray = dt_txt.split(' ');
+        const time = dateArray[1].split(':');
 
         return (
             <div className="weather__weather__forecast__item">
-                <h2>{dateArray[2]}</h2>
+                <h4>{time[0]}:{time[1]}</h4>
                 <i className={iconClass} />
                 <span className="weather__weather__forecast__item__description">
                     {weather[0].description}
