@@ -4,7 +4,7 @@ import { icon as iconHelper }          from './WeatherCodeHelper';
 
 class WeatherForecastItem extends Component {
     render() {
-        const { weather, temp } = this.props;
+        const { weather, main } = this.props;
 
         const icon      = iconHelper(weather[0].id);
         const iconClass = `weather__icon weather__icon--${icon}`;
@@ -19,11 +19,11 @@ class WeatherForecastItem extends Component {
                 <span className="weather__weather__forecast__item__min-max">
                     <span className="weather__weather__forecast__item__min">
                         min.<br />
-                        {Math.round(temp.min - 273.15)}°C
+                        {Math.round(main.temp_min - 273.15)}°C
                     </span>
                     <span className="weather__weather__forecast__item__max">
                         max.<br />
-                        {Math.round(temp.max - 273.15)}°C
+                        {Math.round(main.temp_max - 273.15)}°C
                     </span>
                 </span>
             </div>
@@ -34,9 +34,9 @@ class WeatherForecastItem extends Component {
 WeatherForecastItem.displayName = 'WeatherForecastItem';
 
 WeatherForecastItem.propTypes = {
-    temp: PropTypes.shape({
-        min: PropTypes.number.isRequired,
-        max: PropTypes.number.isRequired
+    main: PropTypes.shape({
+        temp_max: PropTypes.number.isRequired,
+        temp_min: PropTypes.number.isRequired
     }).isRequired,
     weather: PropTypes.arrayOf(
         PropTypes.shape({
